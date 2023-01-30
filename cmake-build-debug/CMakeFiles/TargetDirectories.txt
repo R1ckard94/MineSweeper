@@ -1,0 +1,3 @@
+/Users/rickard1/Documents/Uni/Programmeringsmetodik/MineSweeper/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/rickard1/Documents/Uni/Programmeringsmetodik/MineSweeper/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/rickard1/Documents/Uni/Programmeringsmetodik/MineSweeper/cmake-build-debug/CMakeFiles/MineSweeper.dir

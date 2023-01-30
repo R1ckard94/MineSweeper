@@ -1,0 +1,206 @@
+\hypertarget{class_game_end}{}\doxysection{Game\+End Class Reference}
+\label{class_game_end}\index{GameEnd@{GameEnd}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_end_a7ae4ce442fa76ea5e73b3470e5337169}{Game\+End}} (sf\+::\+Font \&font)
+\begin{DoxyCompactList}\small\item\em game time text is always set regarding to how long it took for the user to win \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_end_a37dc024682352ebf78f495c96ec026f9}{draw}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em CTOR needs to get a font value from main in order to display it. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_end_a5284fcd6edbd392b835058606f02c959}{set\+Text}} (std\+::string title)
+\begin{DoxyCompactList}\small\item\em draw-\/function, takes in a Render\+Window object and displays the texts \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_end_adc212a95aabd862bef54621f7ac2f06a}{set\+Text\+Color}} (sf\+::\+Color color)
+\begin{DoxyCompactList}\small\item\em set the title if the game is \char`\"{}won\char`\"{} or \char`\"{}over\char`\"{} \end{DoxyCompactList}\item 
+sf\+::\+Text \mbox{\hyperlink{class_game_end_a1a9200b47ed961f6d9e087beb2eddce5}{get\+Time\+Text}} () const
+\begin{DoxyCompactList}\small\item\em sets the color of game\+Overtext, Green if the game was won and Red if the game is over \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename B $>$ }\\void \mbox{\hyperlink{class_game_end_aaee12fc64086f86f5f974851b7c9d65f}{set\+Time\+Text}} (long double time, B func)
+\begin{DoxyCompactList}\small\item\em returns the timetext object \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_game_end_8h_source_l00012}{12}} of file \mbox{\hyperlink{_game_end_8h_source}{Game\+End.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_game_end_a7ae4ce442fa76ea5e73b3470e5337169}\label{class_game_end_a7ae4ce442fa76ea5e73b3470e5337169}} 
+\index{GameEnd@{GameEnd}!GameEnd@{GameEnd}}
+\index{GameEnd@{GameEnd}!GameEnd@{GameEnd}}
+\doxysubsubsection{\texorpdfstring{GameEnd()}{GameEnd()}}
+{\footnotesize\ttfamily Game\+End\+::\+Game\+End (\begin{DoxyParamCaption}\item[{sf\+::\+Font \&}]{font }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+game time text is always set regarding to how long it took for the user to win 
+
+
+
+Definition at line \mbox{\hyperlink{_game_end_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{_game_end_8cpp_source}{Game\+End.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00008                              :font(aFont)}
+\DoxyCodeLine{00009 \{}
+\DoxyCodeLine{00010     gameOverText.setFont(font);}
+\DoxyCodeLine{00011     gameOverText.setString(\textcolor{stringliteral}{"{}Game Over"{}});}
+\DoxyCodeLine{00012     gameOverText.setCharacterSize(60);}
+\DoxyCodeLine{00013     gameOverText.setFillColor(sf::Color::Red);}
+\DoxyCodeLine{00014     gameOverText.setOutlineColor(sf::Color::Black);}
+\DoxyCodeLine{00015     gameOverText.setOutlineThickness(2.0);}
+\DoxyCodeLine{00016     gameOverText.setStyle(sf::Text::Style::Bold | sf::Text::Style::Italic);}
+\DoxyCodeLine{00017     gameOverText.setPosition(135.0,0.0);}
+\DoxyCodeLine{00018     timeText.setFont(font);}
+\DoxyCodeLine{00019     timeText.setCharacterSize(26);}
+\DoxyCodeLine{00020     timeText.setFillColor(sf::Color::Black);}
+\DoxyCodeLine{00021     timeText.setPosition(87.5,75.0);}
+\DoxyCodeLine{00022 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_game_end_a37dc024682352ebf78f495c96ec026f9}\label{class_game_end_a37dc024682352ebf78f495c96ec026f9}} 
+\index{GameEnd@{GameEnd}!draw@{draw}}
+\index{draw@{draw}!GameEnd@{GameEnd}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Game\+End\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+CTOR needs to get a font value from main in order to display it. 
+
+
+
+Definition at line \mbox{\hyperlink{_game_end_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{_game_end_8cpp_source}{Game\+End.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025 \{}
+\DoxyCodeLine{00026     sf::RectangleShape infoBox(sf::Vector2f(460.0,150.0));}
+\DoxyCodeLine{00027     sf::Text restartText, quitText;}
+\DoxyCodeLine{00028 }
+\DoxyCodeLine{00029     infoBox.setPosition(80.0,200.0);}
+\DoxyCodeLine{00030     infoBox.setFillColor(sf::Color::Black);}
+\DoxyCodeLine{00031 }
+\DoxyCodeLine{00032     restartText.setFont(font);}
+\DoxyCodeLine{00033     restartText.setString(\textcolor{stringliteral}{"{}Press R to Restart"{}});}
+\DoxyCodeLine{00034     restartText.setCharacterSize(40);}
+\DoxyCodeLine{00035     restartText.setPosition(87.5, 210.0);}
+\DoxyCodeLine{00036     restartText.setFillColor(sf::Color::White);}
+\DoxyCodeLine{00037 }
+\DoxyCodeLine{00038     quitText.setFont(font);}
+\DoxyCodeLine{00039     quitText.setString(\textcolor{stringliteral}{"{}Press Q to Quit"{}});}
+\DoxyCodeLine{00040     quitText.setCharacterSize(40);}
+\DoxyCodeLine{00041     quitText.setPosition(87.5,260.0);}
+\DoxyCodeLine{00042     quitText.setFillColor(sf::Color::White);}
+\DoxyCodeLine{00043 }
+\DoxyCodeLine{00044     window.draw(gameOverText);}
+\DoxyCodeLine{00045     window.draw(infoBox);}
+\DoxyCodeLine{00046     window.draw(restartText);}
+\DoxyCodeLine{00047     window.draw(quitText);}
+\DoxyCodeLine{00048 }
+\DoxyCodeLine{00049 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_end_a1a9200b47ed961f6d9e087beb2eddce5}\label{class_game_end_a1a9200b47ed961f6d9e087beb2eddce5}} 
+\index{GameEnd@{GameEnd}!getTimeText@{getTimeText}}
+\index{getTimeText@{getTimeText}!GameEnd@{GameEnd}}
+\doxysubsubsection{\texorpdfstring{getTimeText()}{getTimeText()}}
+{\footnotesize\ttfamily sf\+::\+Text Game\+End\+::get\+Time\+Text (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+sets the color of game\+Overtext, Green if the game was won and Red if the game is over 
+
+
+
+Definition at line \mbox{\hyperlink{_game_end_8cpp_source_l00060}{60}} of file \mbox{\hyperlink{_game_end_8cpp_source}{Game\+End.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00061 \{}
+\DoxyCodeLine{00062     \textcolor{keywordflow}{return} timeText;}
+\DoxyCodeLine{00063 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_end_a5284fcd6edbd392b835058606f02c959}\label{class_game_end_a5284fcd6edbd392b835058606f02c959}} 
+\index{GameEnd@{GameEnd}!setText@{setText}}
+\index{setText@{setText}!GameEnd@{GameEnd}}
+\doxysubsubsection{\texorpdfstring{setText()}{setText()}}
+{\footnotesize\ttfamily void Game\+End\+::set\+Text (\begin{DoxyParamCaption}\item[{std\+::string}]{title }\end{DoxyParamCaption})}
+
+
+
+draw-\/function, takes in a Render\+Window object and displays the texts 
+
+
+
+Definition at line \mbox{\hyperlink{_game_end_8cpp_source_l00051}{51}} of file \mbox{\hyperlink{_game_end_8cpp_source}{Game\+End.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00052 \{}
+\DoxyCodeLine{00053     gameOverText.setString(title);}
+\DoxyCodeLine{00054 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_end_adc212a95aabd862bef54621f7ac2f06a}\label{class_game_end_adc212a95aabd862bef54621f7ac2f06a}} 
+\index{GameEnd@{GameEnd}!setTextColor@{setTextColor}}
+\index{setTextColor@{setTextColor}!GameEnd@{GameEnd}}
+\doxysubsubsection{\texorpdfstring{setTextColor()}{setTextColor()}}
+{\footnotesize\ttfamily void Game\+End\+::set\+Text\+Color (\begin{DoxyParamCaption}\item[{sf\+::\+Color}]{color }\end{DoxyParamCaption})}
+
+
+
+set the title if the game is \char`\"{}won\char`\"{} or \char`\"{}over\char`\"{} 
+
+
+
+Definition at line \mbox{\hyperlink{_game_end_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{_game_end_8cpp_source}{Game\+End.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057 \{}
+\DoxyCodeLine{00058     gameOverText.setFillColor(color);}
+\DoxyCodeLine{00059 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_end_aaee12fc64086f86f5f974851b7c9d65f}\label{class_game_end_aaee12fc64086f86f5f974851b7c9d65f}} 
+\index{GameEnd@{GameEnd}!setTimeText@{setTimeText}}
+\index{setTimeText@{setTimeText}!GameEnd@{GameEnd}}
+\doxysubsubsection{\texorpdfstring{setTimeText()}{setTimeText()}}
+{\footnotesize\ttfamily template$<$typename B $>$ \\
+void Game\+End\+::set\+Time\+Text (\begin{DoxyParamCaption}\item[{long double}]{time,  }\item[{B}]{func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns the timetext object 
+
+
+
+Definition at line \mbox{\hyperlink{_game_end_8h_source_l00031}{31}} of file \mbox{\hyperlink{_game_end_8h_source}{Game\+End.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031                                               \{}
+\DoxyCodeLine{00032         \textcolor{keywordtype}{int} timeMinutes = 0;}
+\DoxyCodeLine{00033         \textcolor{keywordflow}{while}(func(time))\{}
+\DoxyCodeLine{00034             timeMinutes++;}
+\DoxyCodeLine{00035             time = time-\/60.0;}
+\DoxyCodeLine{00036         \}}
+\DoxyCodeLine{00037         \textcolor{keywordflow}{if}(timeMinutes > 0)\{}
+\DoxyCodeLine{00038             timeText.setString(\textcolor{stringliteral}{"{}Time to Win:\(\backslash\)n"{}} + std::to\_string(timeMinutes) + (timeMinutes > 1? \textcolor{stringliteral}{"{} Minutes"{}}: \textcolor{stringliteral}{"{} Minute"{}})+ \textcolor{stringliteral}{"{} and\(\backslash\)n"{}} + std::to\_string(time) + \textcolor{stringliteral}{"{} Seconds"{}});}
+\DoxyCodeLine{00039         \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00040             timeText.setString(\textcolor{stringliteral}{"{}Time to Win:\(\backslash\)n"{}} + std::to\_string(time) + \textcolor{stringliteral}{"{} Seconds"{}});}
+\DoxyCodeLine{00041         \}}
+\DoxyCodeLine{00042     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Game\+End.\+h\item 
+Game\+End.\+cpp\end{DoxyCompactItemize}

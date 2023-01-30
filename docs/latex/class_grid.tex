@@ -1,0 +1,447 @@
+\hypertarget{class_grid}{}\doxysection{Grid Class Reference}
+\label{class_grid}\index{Grid@{Grid}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_grid_a4ac9ff4f63552b4c61ff90fcb35ad66c}{Grid}} ()
+\begin{DoxyCompactList}\small\item\em private fill function that fills the vector with Cells and assigns coordinates to each \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_grid_aa382a471bc71fd8748035908ed611d72}{Grid}} (int difficulty)
+\begin{DoxyCompactList}\small\item\em default CTOR \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_grid_a7c6b57857c9e2a3328d7d6f1ba2e262a}{Grid}} (const \mbox{\hyperlink{class_grid}{Grid}} \&rhs)
+\begin{DoxyCompactList}\small\item\em CTOR with assignable difficulty. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_grid_a3661d0a7f998caaaf8627d7a67072116}\label{class_grid_a3661d0a7f998caaaf8627d7a67072116}} 
+{\bfseries $\sim$\+Grid} ()
+\begin{DoxyCompactList}\small\item\em Copy-\/\+CTOR. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_grid}{Grid}} \& \mbox{\hyperlink{class_grid_ac58d4dd4f4c607412aa5ebd28e2c8317}{restart}} ()
+\begin{DoxyCompactList}\small\item\em DTOR. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_grid}{Grid}} \& \mbox{\hyperlink{class_grid_a9e3d91bb15a2563c8125b0dd57ba342e}{operator=}} (const \mbox{\hyperlink{class_grid}{Grid}} \&rhs)
+\begin{DoxyCompactList}\small\item\em Restart function to make a new grid and rerun the program. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_grid_a0b680f3789ba54faf56047e9427b8b0d}{draw\+Board}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em copy-\/assign \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_grid_a3ed2b224d4bca022b9b5ef76864122c4}{generate\+Mines}} ()
+\begin{DoxyCompactList}\small\item\em drawboard function, takes in a Render\+Window object and draws the 2D vector of the game \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_grid_a1e0f0ea50000b9c78cb284ae9fbb3750}{count\+Adjacent\+Mines}} ()
+\begin{DoxyCompactList}\small\item\em generate mines inside the 2D vector randomly \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_grid_a9367c82c05eab872162e309b2b3a5299}{flag\+Cell}} (int coordX, int coordY)
+\begin{DoxyCompactList}\small\item\em each cell checks its neighbors and count how many have mines \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_grid_ae5256c2a0503bd2c5e76f38b3d171e23}{open\+Cell}} (int coordX, int coordY)
+\begin{DoxyCompactList}\small\item\em flags and unflags a cell. A cell that is open can not be flagged \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_grid_a8911028bdc39211f3571c55170bc51d3}{is\+Game\+Over}} () const
+\item 
+bool \mbox{\hyperlink{class_grid_aa7aab7aaf0c667b18a001377afcee496}{is\+Game\+Won}} () const
+\begin{DoxyCompactList}\small\item\em Returns bool if the game is lost. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_grid_ad3e28d4a5277ed3de2989be65f2602b7}{size}} () const
+\begin{DoxyCompactList}\small\item\em Returns bool if the game is won. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_grid_8h_source_l00012}{12}} of file \mbox{\hyperlink{_grid_8h_source}{Grid.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_grid_a4ac9ff4f63552b4c61ff90fcb35ad66c}\label{class_grid_a4ac9ff4f63552b4c61ff90fcb35ad66c}} 
+\index{Grid@{Grid}!Grid@{Grid}}
+\index{Grid@{Grid}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{Grid()}{Grid()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Grid\+::\+Grid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+private fill function that fills the vector with Cells and assigns coordinates to each 
+
+
+
+Definition at line \mbox{\hyperlink{_grid_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{_grid_8cpp_source}{Grid.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00010           :rowAndColumnSize(ROW\_AND\_COLUMN\_SIZE), amountOfMines(MINES), difficulty(DIFFICULTY\_EASY)}
+\DoxyCodeLine{00011 \{}
+\DoxyCodeLine{00012     fillVector();}
+\DoxyCodeLine{00013 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_grid_aa382a471bc71fd8748035908ed611d72}\label{class_grid_aa382a471bc71fd8748035908ed611d72}} 
+\index{Grid@{Grid}!Grid@{Grid}}
+\index{Grid@{Grid}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{Grid()}{Grid()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Grid\+::\+Grid (\begin{DoxyParamCaption}\item[{int}]{difficulty }\end{DoxyParamCaption})}
+
+
+
+default CTOR 
+
+
+
+Definition at line \mbox{\hyperlink{_grid_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{_grid_8cpp_source}{Grid.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015                         :difficulty(difficulty)}
+\DoxyCodeLine{00016 \{}
+\DoxyCodeLine{00017     \textcolor{keywordflow}{if}(difficulty == DIFFICULTY\_MEDIUM)\{}
+\DoxyCodeLine{00018         rowAndColumnSize = ROW\_AND\_COLUMN\_SIZE\_2;}
+\DoxyCodeLine{00019         amountOfMines = MINES\_2;}
+\DoxyCodeLine{00020         fillVector();}
+\DoxyCodeLine{00021     \}}
+\DoxyCodeLine{00022     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(difficulty == DIFFICULTY\_HARD)\{}
+\DoxyCodeLine{00023         rowAndColumnSize = ROW\_AND\_COLUMN\_SIZE\_3;}
+\DoxyCodeLine{00024         amountOfMines = MINES\_3;}
+\DoxyCodeLine{00025         fillVector();}
+\DoxyCodeLine{00026     \}}
+\DoxyCodeLine{00027     \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00028         \mbox{\hyperlink{class_grid}{Grid}} tmp;}
+\DoxyCodeLine{00029         *\textcolor{keyword}{this} = tmp;}
+\DoxyCodeLine{00030     \}}
+\DoxyCodeLine{00031 }
+\DoxyCodeLine{00032 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_grid_a7c6b57857c9e2a3328d7d6f1ba2e262a}\label{class_grid_a7c6b57857c9e2a3328d7d6f1ba2e262a}} 
+\index{Grid@{Grid}!Grid@{Grid}}
+\index{Grid@{Grid}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{Grid()}{Grid()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Grid\+::\+Grid (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_grid}{Grid}} \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+CTOR with assignable difficulty. 
+
+
+
+Definition at line \mbox{\hyperlink{_grid_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{_grid_8cpp_source}{Grid.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00034                          :\textcolor{comment}{//Copy CTOR}}
+\DoxyCodeLine{00035 board(rhs.board),}
+\DoxyCodeLine{00036 gameOver(rhs.gameOver),}
+\DoxyCodeLine{00037 gameWon(rhs.gameWon),}
+\DoxyCodeLine{00038 rowAndColumnSize(rhs.rowAndColumnSize),}
+\DoxyCodeLine{00039 amountOfMines(rhs.amountOfMines),}
+\DoxyCodeLine{00040 difficulty(rhs.difficulty)}
+\DoxyCodeLine{00041 \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_grid_a1e0f0ea50000b9c78cb284ae9fbb3750}\label{class_grid_a1e0f0ea50000b9c78cb284ae9fbb3750}} 
+\index{Grid@{Grid}!countAdjacentMines@{countAdjacentMines}}
+\index{countAdjacentMines@{countAdjacentMines}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{countAdjacentMines()}{countAdjacentMines()}}
+{\footnotesize\ttfamily void Grid\+::count\+Adjacent\+Mines (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+generate mines inside the 2D vector randomly 
+
+
+
+Definition at line \mbox{\hyperlink{_grid_8cpp_source_l00159}{159}} of file \mbox{\hyperlink{_grid_8cpp_source}{Grid.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00160 \{}
+\DoxyCodeLine{00161     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i<rowAndColumnSize; i++)\{}
+\DoxyCodeLine{00162         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j = 0; j<rowAndColumnSize; j++)\{}
+\DoxyCodeLine{00163             board[i][j].countAdjacentMines(board);}
+\DoxyCodeLine{00164         \}}
+\DoxyCodeLine{00165     \}}
+\DoxyCodeLine{00166 }
+\DoxyCodeLine{00167 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_grid_a0b680f3789ba54faf56047e9427b8b0d}\label{class_grid_a0b680f3789ba54faf56047e9427b8b0d}} 
+\index{Grid@{Grid}!drawBoard@{drawBoard}}
+\index{drawBoard@{drawBoard}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{drawBoard()}{drawBoard()}}
+{\footnotesize\ttfamily void Grid\+::draw\+Board (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+copy-\/assign 
+
+
+
+Definition at line \mbox{\hyperlink{_grid_8cpp_source_l00103}{103}} of file \mbox{\hyperlink{_grid_8cpp_source}{Grid.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00104 \{}
+\DoxyCodeLine{00105     sf::RectangleShape cell(sf::Vector2f(CELL\_SIZE -\/ 1 , CELL\_SIZE -\/ 1));}
+\DoxyCodeLine{00106     sf::Sprite iconSprite;}
+\DoxyCodeLine{00107     sf::Texture iconTexture;}
+\DoxyCodeLine{00108     sf::Sprite iconSprite2;}
+\DoxyCodeLine{00109     sf::Texture iconTexture2;}
+\DoxyCodeLine{00110     unopenedCellsLeft = (rowAndColumnSize*rowAndColumnSize)-\/amountOfMines;}
+\DoxyCodeLine{00111 }
+\DoxyCodeLine{00112     iconTexture.loadFromFile(\textcolor{stringliteral}{"{}Resources/Images/Icons16.png"{}});}
+\DoxyCodeLine{00113     iconSprite.setTexture(iconTexture);}
+\DoxyCodeLine{00114 }
+\DoxyCodeLine{00115 }
+\DoxyCodeLine{00116     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} y = 0; y<rowAndColumnSize; y++)\{}
+\DoxyCodeLine{00117         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} x = 0; x<rowAndColumnSize; x++)\{}
+\DoxyCodeLine{00118             \textcolor{keywordflow}{if}(!board[y][x].isOpen())\{  \textcolor{comment}{//if the cell is closed}}
+\DoxyCodeLine{00119                     cell.setFillColor(sf::Color::White);}
+\DoxyCodeLine{00120                     cell.setPosition(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(CELL\_SIZE * x), \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(CELL\_SIZE * y));}
+\DoxyCodeLine{00121                     window.draw(cell);}
+\DoxyCodeLine{00122                 \textcolor{keywordflow}{if}(board[y][x].isFlagged()) \{}
+\DoxyCodeLine{00123                     iconSprite.setPosition(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(CELL\_SIZE * x), \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(CELL\_SIZE * y));}
+\DoxyCodeLine{00124                     iconSprite.setTextureRect(sf::IntRect(0, 0, CELL\_SIZE+2, CELL\_SIZE+2));}
+\DoxyCodeLine{00125                     window.draw(iconSprite);}
+\DoxyCodeLine{00126                 \}}
+\DoxyCodeLine{00127                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_grid_a8911028bdc39211f3571c55170bc51d3}{isGameOver}}() \&\& board[y][x].isMine())\{}
+\DoxyCodeLine{00128                     cell.setFillColor(sf::Color::Red);}
+\DoxyCodeLine{00129                     window.draw(cell);}
+\DoxyCodeLine{00130                 \}}
+\DoxyCodeLine{00131             \}\textcolor{keywordflow}{else}\{  \textcolor{comment}{//if the cell is open}}
+\DoxyCodeLine{00132                 \textcolor{keywordflow}{if}(!board[y][x].isMine())\{}
+\DoxyCodeLine{00133                     cell.setFillColor(sf::Color(150,150,150));}
+\DoxyCodeLine{00134                     unopenedCellsLeft-\/-\/;}
+\DoxyCodeLine{00135                     \textcolor{keywordflow}{if}(unopenedCellsLeft == 0)\{}
+\DoxyCodeLine{00136                         gameWon = \textcolor{keyword}{true};}
+\DoxyCodeLine{00137                     \}}
+\DoxyCodeLine{00138                 \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00139                     cell.setFillColor(sf::Color::Red);}
+\DoxyCodeLine{00140                 \}}
+\DoxyCodeLine{00141                 \textcolor{keywordtype}{int} minesAround = board[y][x].getAmountOfMinesAdjacent();}
+\DoxyCodeLine{00142                 cell.setPosition(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(CELL\_SIZE * x), \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(CELL\_SIZE * y));}
+\DoxyCodeLine{00143 }
+\DoxyCodeLine{00144                 window.draw(cell);}
+\DoxyCodeLine{00145                 \textcolor{keywordflow}{if}(0 < minesAround)\{}
+\DoxyCodeLine{00146                     iconSprite.setPosition(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(CELL\_SIZE * x), \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(CELL\_SIZE * y));}
+\DoxyCodeLine{00147                     iconSprite.setTextureRect(sf::IntRect(CELL\_SIZE * minesAround, 0, CELL\_SIZE+1, CELL\_SIZE));}
+\DoxyCodeLine{00148 }
+\DoxyCodeLine{00149                     window.draw(iconSprite);}
+\DoxyCodeLine{00150                 \}}
+\DoxyCodeLine{00151             \}}
+\DoxyCodeLine{00152 }
+\DoxyCodeLine{00153 }
+\DoxyCodeLine{00154         \}}
+\DoxyCodeLine{00155     \}}
+\DoxyCodeLine{00156 }
+\DoxyCodeLine{00157 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_grid_a9367c82c05eab872162e309b2b3a5299}\label{class_grid_a9367c82c05eab872162e309b2b3a5299}} 
+\index{Grid@{Grid}!flagCell@{flagCell}}
+\index{flagCell@{flagCell}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{flagCell()}{flagCell()}}
+{\footnotesize\ttfamily void Grid\+::flag\+Cell (\begin{DoxyParamCaption}\item[{int}]{coordX,  }\item[{int}]{coordY }\end{DoxyParamCaption})}
+
+
+
+each cell checks its neighbors and count how many have mines 
+
+
+
+Definition at line \mbox{\hyperlink{_grid_8cpp_source_l00188}{188}} of file \mbox{\hyperlink{_grid_8cpp_source}{Grid.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00189 \{}
+\DoxyCodeLine{00190     \textcolor{keywordflow}{if}(!board[coordY][coordX].isOpen())\{}
+\DoxyCodeLine{00191         board[coordY][coordX].flagCell();}
+\DoxyCodeLine{00192     \}}
+\DoxyCodeLine{00193 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_grid_a3ed2b224d4bca022b9b5ef76864122c4}\label{class_grid_a3ed2b224d4bca022b9b5ef76864122c4}} 
+\index{Grid@{Grid}!generateMines@{generateMines}}
+\index{generateMines@{generateMines}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{generateMines()}{generateMines()}}
+{\footnotesize\ttfamily void Grid\+::generate\+Mines (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+drawboard function, takes in a Render\+Window object and draws the 2D vector of the game 
+
+
+
+Definition at line \mbox{\hyperlink{_grid_8cpp_source_l00169}{169}} of file \mbox{\hyperlink{_grid_8cpp_source}{Grid.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00170 \{}
+\DoxyCodeLine{00171     srand(time(NULL));}
+\DoxyCodeLine{00172 }
+\DoxyCodeLine{00173     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} mineX;}
+\DoxyCodeLine{00174     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} mineY;}
+\DoxyCodeLine{00175     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i<amountOfMines; i++)\{}
+\DoxyCodeLine{00176 }
+\DoxyCodeLine{00177         mineX = rand() \% rowAndColumnSize;}
+\DoxyCodeLine{00178         mineY = rand() \% rowAndColumnSize;}
+\DoxyCodeLine{00179 }
+\DoxyCodeLine{00180         \textcolor{keywordflow}{if}(board[mineY][mineX].isMine())\{}
+\DoxyCodeLine{00181             i-\/-\/;}
+\DoxyCodeLine{00182         \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00183             board[mineY][mineX].setMine(\textcolor{keyword}{true});}
+\DoxyCodeLine{00184         \}}
+\DoxyCodeLine{00185     \}}
+\DoxyCodeLine{00186 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_grid_a8911028bdc39211f3571c55170bc51d3}\label{class_grid_a8911028bdc39211f3571c55170bc51d3}} 
+\index{Grid@{Grid}!isGameOver@{isGameOver}}
+\index{isGameOver@{isGameOver}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{isGameOver()}{isGameOver()}}
+{\footnotesize\ttfamily bool Grid\+::is\+Game\+Over (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+opens a cell. A cell that is flagged can not be opened unless it is unflagged. If a cell doesnt have any mines around it the cell opens recursively opens its neighbours checking if they also have zero mines around 
+
+Definition at line \mbox{\hyperlink{_grid_8cpp_source_l00087}{87}} of file \mbox{\hyperlink{_grid_8cpp_source}{Grid.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00088 \{}
+\DoxyCodeLine{00089     \textcolor{keywordflow}{return} gameOver;}
+\DoxyCodeLine{00090 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_grid_aa7aab7aaf0c667b18a001377afcee496}\label{class_grid_aa7aab7aaf0c667b18a001377afcee496}} 
+\index{Grid@{Grid}!isGameWon@{isGameWon}}
+\index{isGameWon@{isGameWon}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{isGameWon()}{isGameWon()}}
+{\footnotesize\ttfamily bool Grid\+::is\+Game\+Won (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns bool if the game is lost. 
+
+
+
+Definition at line \mbox{\hyperlink{_grid_8cpp_source_l00093}{93}} of file \mbox{\hyperlink{_grid_8cpp_source}{Grid.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00094 \{}
+\DoxyCodeLine{00095     \textcolor{keywordflow}{return} gameWon;}
+\DoxyCodeLine{00096 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_grid_ae5256c2a0503bd2c5e76f38b3d171e23}\label{class_grid_ae5256c2a0503bd2c5e76f38b3d171e23}} 
+\index{Grid@{Grid}!openCell@{openCell}}
+\index{openCell@{openCell}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{openCell()}{openCell()}}
+{\footnotesize\ttfamily void Grid\+::open\+Cell (\begin{DoxyParamCaption}\item[{int}]{coordX,  }\item[{int}]{coordY }\end{DoxyParamCaption})}
+
+
+
+flags and unflags a cell. A cell that is open can not be flagged 
+
+
+
+Definition at line \mbox{\hyperlink{_grid_8cpp_source_l00195}{195}} of file \mbox{\hyperlink{_grid_8cpp_source}{Grid.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00196 \{}
+\DoxyCodeLine{00197     \textcolor{keywordflow}{if}(!board[coordY][coordX].isFlagged())\{}
+\DoxyCodeLine{00198         \mbox{\hyperlink{class_cell}{Cell}}\& currCell = board[coordY][coordX];}
+\DoxyCodeLine{00199         currCell.\mbox{\hyperlink{class_cell_a190d14677bd8036a2ba92d24b94bae17}{openCell}}();}
+\DoxyCodeLine{00200         \textcolor{keywordflow}{if}(currCell.\mbox{\hyperlink{class_cell_a5f0d777884d1525d94f170cf990b2aa4}{isMine}}())\{}
+\DoxyCodeLine{00201             gameOver = \textcolor{keyword}{true};}
+\DoxyCodeLine{00202             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00203         \}}
+\DoxyCodeLine{00204         \textcolor{keywordflow}{if}(currCell.\mbox{\hyperlink{class_cell_aa62711ef56317043a5618e83a3a12dd3}{getAmountOfMinesAdjacent}}() == 0)\{}
+\DoxyCodeLine{00205             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} y = -\/1 ; y<=1; y++)\{ \textcolor{comment}{//on the y-\/axis we want to move 3 steps}}
+\DoxyCodeLine{00206                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} x = -\/1; x<=1; x++)\{\textcolor{comment}{//on the x-\/axis we want to move 3 steps aswell except when we reach ourown spot}}
+\DoxyCodeLine{00207                     \textcolor{keywordflow}{if}(y == 0 \&\& x == 0)\{ \textcolor{comment}{//}}
+\DoxyCodeLine{00208                         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00209                     \}}
+\DoxyCodeLine{00210                     \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00211                     \{}
+\DoxyCodeLine{00212 }
+\DoxyCodeLine{00213                         \mbox{\hyperlink{class_cell}{Cell}}\& tmp = board.at(y+coordY).at(x+coordX);   \textcolor{comment}{//in order to trigger the out of bounds check we make this reference}}
+\DoxyCodeLine{00214                         \textcolor{keywordflow}{if}(!tmp.\mbox{\hyperlink{class_cell_aa5b5db4b2da2d197c1ae2185b5646461}{isOpen}}())\{}
+\DoxyCodeLine{00215                             \mbox{\hyperlink{class_grid_ae5256c2a0503bd2c5e76f38b3d171e23}{openCell}}(x+coordX,y+coordY);      \textcolor{comment}{//if the cell alrdy is open we dont open it again}}
+\DoxyCodeLine{00216                         \}}
+\DoxyCodeLine{00217                     \}}
+\DoxyCodeLine{00218                     \textcolor{keywordflow}{catch}(\textcolor{keyword}{const} std::out\_of\_range \& e)}
+\DoxyCodeLine{00219                     \{}
+\DoxyCodeLine{00220                         \textcolor{comment}{//catches errors when edges tries to check for cells out of bounds of the vector, and program keeps running}}
+\DoxyCodeLine{00221                     \}}
+\DoxyCodeLine{00222                 \}}
+\DoxyCodeLine{00223             \}}
+\DoxyCodeLine{00224         \}}
+\DoxyCodeLine{00225     \}}
+\DoxyCodeLine{00226 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_grid_a9e3d91bb15a2563c8125b0dd57ba342e}\label{class_grid_a9e3d91bb15a2563c8125b0dd57ba342e}} 
+\index{Grid@{Grid}!operator=@{operator=}}
+\index{operator=@{operator=}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_grid}{Grid}} \& Grid\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_grid}{Grid}} \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Restart function to make a new grid and rerun the program. 
+
+
+
+Definition at line \mbox{\hyperlink{_grid_8cpp_source_l00043}{43}} of file \mbox{\hyperlink{_grid_8cpp_source}{Grid.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00044 \{}
+\DoxyCodeLine{00045     \mbox{\hyperlink{class_grid}{Grid}} tmp(rhs);}
+\DoxyCodeLine{00046     swap(tmp);}
+\DoxyCodeLine{00047     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{00048 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_grid_ac58d4dd4f4c607412aa5ebd28e2c8317}\label{class_grid_ac58d4dd4f4c607412aa5ebd28e2c8317}} 
+\index{Grid@{Grid}!restart@{restart}}
+\index{restart@{restart}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{restart()}{restart()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_grid}{Grid}} \& Grid\+::restart (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+DTOR. 
+
+
+
+Definition at line \mbox{\hyperlink{_grid_8cpp_source_l00079}{79}} of file \mbox{\hyperlink{_grid_8cpp_source}{Grid.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00080 \{}
+\DoxyCodeLine{00081     \mbox{\hyperlink{class_grid}{Grid}} tmp(difficulty);}
+\DoxyCodeLine{00082     *\textcolor{keyword}{this} = tmp;}
+\DoxyCodeLine{00083     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{00084 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_grid_ad3e28d4a5277ed3de2989be65f2602b7}\label{class_grid_ad3e28d4a5277ed3de2989be65f2602b7}} 
+\index{Grid@{Grid}!size@{size}}
+\index{size@{size}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily int Grid\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns bool if the game is won. 
+
+
+
+Definition at line \mbox{\hyperlink{_grid_8cpp_source_l00098}{98}} of file \mbox{\hyperlink{_grid_8cpp_source}{Grid.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00099 \{}
+\DoxyCodeLine{00100     \textcolor{keywordflow}{return} rowAndColumnSize;}
+\DoxyCodeLine{00101 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Grid.\+h\item 
+Grid.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,163 @@
+\hypertarget{main_8cpp_source}{}\doxysection{main.\+cpp}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00002}00002 \textcolor{preprocessor}{\#include <SFML/Graphics.hpp>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00003}00003 \textcolor{preprocessor}{\#include "{}Global.h"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00004}00004 \textcolor{preprocessor}{\#include "{}Grid.h"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00005}00005 \textcolor{preprocessor}{\#include "{}GameEnd.h"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00008}00008 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} G>}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00009}00009 \textcolor{keywordtype}{void} setView(T\& win, G\& grid)}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00010}00010 \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00011}00011     win.setView(sf::View(sf::FloatRect(0, 0, CELL\_SIZE * grid.size(), CELL\_SIZE * grid.size())));}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00012}00012 \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00014}00014 \textcolor{keywordtype}{int} main()}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00015}00015 \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00016}00016     \textcolor{keywordtype}{bool} firstCell = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00017}00017     sf::Vector2i CurrentMousePosition;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00018}00018     std::chrono::time\_point<std::chrono::steady\_clock> timeStart;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00019}00019     std::chrono::time\_point<std::chrono::steady\_clock> timeStop;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00020}00020     sf::RenderWindow window(sf::VideoMode(WINDOW\_SIZE\_EASY, WINDOW\_SIZE\_EASY), TITLE, sf::Style::Close);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00022}00022     sf::Font font;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00023}00023     \textcolor{keywordflow}{if}(!font.loadFromFile(\textcolor{stringliteral}{"{}Resources/Fonts/SourceCode.ttf"{}}))\{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00024}00024         std::cout<<\textcolor{stringliteral}{"{}failed to load font from file\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00025}00025         system(\textcolor{stringliteral}{"{}pause"{}});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00026}00026     \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00027}00027     \mbox{\hyperlink{class_game_end}{GameEnd}} gameEnd(font);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00029}00029     \mbox{\hyperlink{class_grid}{Grid}} grid;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00030}00030     setView(window, grid);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00032}00032     \textcolor{keywordflow}{while} (window.isOpen())}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00033}00033     \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00034}00034         sf::Event \textcolor{keyword}{event}\{\};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00036}00036         \textcolor{keywordflow}{while} (window.pollEvent(event)) \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00038}00038             \textcolor{keywordflow}{if} (event.type == sf::Event::Closed)\{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00039}00039                 window.close();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00040}00040             \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00041}00041             \textcolor{keywordflow}{if}(event.type == sf::Event::MouseButtonReleased)\{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00042}00042                 CurrentMousePosition = sf::Mouse::getPosition(window);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00043}00043                 \textcolor{keywordtype}{int} mouseCoordX = (CurrentMousePosition.x / CELL\_SIZE / (grid.\mbox{\hyperlink{class_grid_ad3e28d4a5277ed3de2989be65f2602b7}{size}}() == ROW\_AND\_COLUMN\_SIZE? SCREEN\_SIZE\_SMALLER\_CELLS:SCREEN\_SIZE\_BIGGER\_CELLS));}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00044}00044                 \textcolor{keywordtype}{int} mouseCoordY = (CurrentMousePosition.y / CELL\_SIZE / (grid.\mbox{\hyperlink{class_grid_ad3e28d4a5277ed3de2989be65f2602b7}{size}}() == ROW\_AND\_COLUMN\_SIZE? SCREEN\_SIZE\_SMALLER\_CELLS:SCREEN\_SIZE\_BIGGER\_CELLS));}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00045}00045                 \textcolor{keywordflow}{if}(event.mouseButton.button == sf::Mouse::Left)\{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00046}00046                     \textcolor{keywordflow}{if}(!firstCell)\{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00047}00047                         timeStart = std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00048}00048                         firstCell = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00049}00049                     \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00050}00050                     grid.\mbox{\hyperlink{class_grid_ae5256c2a0503bd2c5e76f38b3d171e23}{openCell}}(mouseCoordX, mouseCoordY);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00051}00051 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00052}00052                 \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00053}00053                 \textcolor{keywordflow}{if}(event.mouseButton.button == sf::Mouse::Right)\{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00054}00054                     grid.\mbox{\hyperlink{class_grid_a9367c82c05eab872162e309b2b3a5299}{flagCell}}(mouseCoordX, mouseCoordY);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00055}00055                 \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00056}00056             \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00057}00057             \textcolor{keywordflow}{if}(event.type == sf::Event::KeyPressed)\{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00058}00058                 \textcolor{keywordflow}{if}(event.key.code == sf::Keyboard::Num1)\{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00059}00059                     \textcolor{keywordflow}{if}(grid.\mbox{\hyperlink{class_grid_ad3e28d4a5277ed3de2989be65f2602b7}{size}}() != ROW\_AND\_COLUMN\_SIZE)\{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00060}00060                         window.close();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00061}00061                         window.create(sf::VideoMode(WINDOW\_SIZE\_EASY,WINDOW\_SIZE\_EASY),TITLE, sf::Style::Close);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00062}00062                         \mbox{\hyperlink{class_grid}{Grid}} tmp(DIFFICULTY\_EASY);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00063}00063                         grid = tmp;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00064}00064                         setView(window, grid);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00065}00065                     \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00066}00066                     grid.\mbox{\hyperlink{class_grid_ac58d4dd4f4c607412aa5ebd28e2c8317}{restart}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00067}00067                     firstCell = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00068}00068                 \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00069}00069                 \textcolor{keywordflow}{if}(event.key.code == sf::Keyboard::Num2)\{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00070}00070                     \textcolor{keywordflow}{if}(grid.\mbox{\hyperlink{class_grid_ad3e28d4a5277ed3de2989be65f2602b7}{size}}() != ROW\_AND\_COLUMN\_SIZE\_2) \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00071}00071                         window.close();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00072}00072                         window.create(sf::VideoMode(WINDOW\_SIZE\_MEDIUM, WINDOW\_SIZE\_MEDIUM), TITLE, sf::Style::Close);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00073}00073                         \mbox{\hyperlink{class_grid}{Grid}} tmp(DIFFICULTY\_MEDIUM);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00074}00074                         grid = tmp;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00075}00075                         setView(window, grid);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00076}00076                     \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00077}00077                     grid.\mbox{\hyperlink{class_grid_ac58d4dd4f4c607412aa5ebd28e2c8317}{restart}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00078}00078                     firstCell = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00079}00079                 \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00080}00080                 \textcolor{keywordflow}{if}(event.key.code == sf::Keyboard::Num3)\{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00081}00081                     \textcolor{keywordflow}{if}(grid.\mbox{\hyperlink{class_grid_ad3e28d4a5277ed3de2989be65f2602b7}{size}}() != ROW\_AND\_COLUMN\_SIZE\_3) \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00082}00082                         window.close();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00083}00083                         window.create(sf::VideoMode(WINDOW\_SIZE\_HARD, WINDOW\_SIZE\_HARD), TITLE, sf::Style::Close);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00084}00084                         \mbox{\hyperlink{class_grid}{Grid}} tmp(DIFFICULTY\_HARD);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00085}00085                         grid = tmp;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00086}00086                         setView(window, grid);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00087}00087                     \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00088}00088                     grid.\mbox{\hyperlink{class_grid_ac58d4dd4f4c607412aa5ebd28e2c8317}{restart}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00089}00089                     firstCell = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00090}00090                 \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00091}00091                 \textcolor{keywordflow}{if}(event.key.code == sf::Keyboard::R)\{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00092}00092                     grid.\mbox{\hyperlink{class_grid_ac58d4dd4f4c607412aa5ebd28e2c8317}{restart}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00093}00093                     firstCell = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00094}00094                 \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00095}00095                 \textcolor{keywordflow}{if}(event.key.code == sf::Keyboard::Q)\{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00096}00096                     window.close();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00097}00097                 \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00098}00098             \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00099}00099 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00100}00100         \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00101}00101 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00102}00102         window.clear();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00103}00103         grid.\mbox{\hyperlink{class_grid_a0b680f3789ba54faf56047e9427b8b0d}{drawBoard}}(window);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00104}00104         window.display();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00105}00105         \textcolor{keywordflow}{if}(grid.\mbox{\hyperlink{class_grid_a8911028bdc39211f3571c55170bc51d3}{isGameOver}}() || grid.\mbox{\hyperlink{class_grid_aa7aab7aaf0c667b18a001377afcee496}{isGameWon}}())\{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00106}00106             timeStop = std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00107}00107             std::chrono::duration<long double> timeTook = std::chrono::duration<double>(timeStop -\/ timeStart);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00108}00108 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00109}00109             sf::RenderWindow gameOverWindow(sf::VideoMode(600, 400), TITLE\_GAME\_OVER, sf::Style::Close);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00110}00110             gameEnd.setTimeText(timeTook.count(), [](\textcolor{keywordtype}{long} \textcolor{keywordtype}{double} time)-\/>bool\{ \textcolor{comment}{// lambda to check how the time should be printed}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00111}00111                 if(time>59)\{ \textcolor{comment}{//since this is in seconds }}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00112}00112                     return true;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00113}00113                 \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00114}00114                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00115}00115             \});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00116}00116 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00117}00117             \textcolor{keywordflow}{if}(grid.\mbox{\hyperlink{class_grid_aa7aab7aaf0c667b18a001377afcee496}{isGameWon}}())\{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00118}00118                 gameEnd.setText(TITLE\_GAME\_WIN);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00119}00119                 gameEnd.setTextColor(sf::Color::Green);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00120}00120                 gameOverWindow.setTitle(TITLE\_GAME\_WIN);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00121}00121 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00122}00122             \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00123}00123                 gameEnd.setText(TITLE\_GAME\_OVER);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00124}00124                 gameEnd.setTextColor(sf::Color::Red);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00125}00125             \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00126}00126             \textcolor{keywordflow}{while}(gameOverWindow.isOpen())\{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00127}00127 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00128}00128                 \textcolor{keywordflow}{while} (gameOverWindow.pollEvent(event)) \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00129}00129                     \textcolor{keywordflow}{if} (event.type == sf::Event::Closed)\{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00130}00130                         gameOverWindow.close();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00131}00131                         window.close();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00132}00132                     \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00133}00133                     \textcolor{keywordflow}{if}(event.type == sf::Event::KeyPressed)\{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00134}00134                         \textcolor{keywordflow}{if}(event.key.code == sf::Keyboard::R)\{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00135}00135                             firstCell = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00136}00136                             grid.\mbox{\hyperlink{class_grid_ac58d4dd4f4c607412aa5ebd28e2c8317}{restart}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00137}00137                             gameOverWindow.close();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00138}00138                         \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00139}00139                         \textcolor{keywordflow}{if}(event.key.code == sf::Keyboard::Q)\{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00140}00140                             gameOverWindow.close();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00141}00141                             window.close();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00142}00142                         \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00143}00143 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00144}00144                     \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00145}00145 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00146}00146                 \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00147}00147                 gameOverWindow.clear(sf::Color(200,200,200,0));}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00148}00148                 gameEnd.draw(gameOverWindow);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00149}00149                 \textcolor{keywordflow}{if}(grid.\mbox{\hyperlink{class_grid_aa7aab7aaf0c667b18a001377afcee496}{isGameWon}}())\{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00150}00150                     gameOverWindow.draw(gameEnd.getTimeText());}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00151}00151                 \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00152}00152                 gameOverWindow.display();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00153}00153             \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00154}00154 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00155}00155         \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00156}00156 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00157}00157     \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00158}00158 \}}
+
+\end{DoxyCode}

@@ -1,0 +1,43 @@
+\hypertarget{_game_end_8h_source}{}\doxysection{Game\+End.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00001}00001 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00002}00002 \textcolor{comment}{// Created by Rickard Karlsson on 2022-\/01-\/04.}}
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00003}00003 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00005}00005 \textcolor{preprocessor}{\#ifndef MINESWEEPER\_GAMEEND\_H}}
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00006}00006 \textcolor{preprocessor}{\#define MINESWEEPER\_GAMEEND\_H}}
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00010}00010 \textcolor{preprocessor}{\#include <SFML/Graphics.hpp>}}
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00012}\mbox{\hyperlink{class_game_end}{00012}} \textcolor{keyword}{class }\mbox{\hyperlink{class_game_end}{GameEnd}}\{}
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00013}00013     sf::Font font;}
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00015}00015     sf::Text gameOverText;}
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00017}00017     sf::Text timeText;}
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00019}00019 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00020}00020     \textcolor{keyword}{explicit} \mbox{\hyperlink{class_game_end_a7ae4ce442fa76ea5e73b3470e5337169}{GameEnd}}(sf::Font\& font);}
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00022}00022     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_end_a37dc024682352ebf78f495c96ec026f9}{draw}}(sf::RenderWindow\& window);}
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00024}00024     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_end_a5284fcd6edbd392b835058606f02c959}{setText}}(std::string title);}
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00026}00026     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_end_adc212a95aabd862bef54621f7ac2f06a}{setTextColor}}(sf::Color color);}
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00028}00028     sf::Text \mbox{\hyperlink{class_game_end_a1a9200b47ed961f6d9e087beb2eddce5}{getTimeText}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00030}00030     \textcolor{keyword}{template}<\textcolor{keyword}{typename} B>}
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00031}\mbox{\hyperlink{class_game_end_aaee12fc64086f86f5f974851b7c9d65f}{00031}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_end_aaee12fc64086f86f5f974851b7c9d65f}{setTimeText}}(\textcolor{keywordtype}{long} \textcolor{keywordtype}{double} time, B func)\{}
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00032}00032         \textcolor{keywordtype}{int} timeMinutes = 0;}
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00033}00033         \textcolor{keywordflow}{while}(func(time))\{}
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00034}00034             timeMinutes++;}
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00035}00035             time = time-\/60.0;}
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00036}00036         \}}
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00037}00037         \textcolor{keywordflow}{if}(timeMinutes > 0)\{}
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00038}00038             timeText.setString(\textcolor{stringliteral}{"{}Time to Win:\(\backslash\)n"{}} + std::to\_string(timeMinutes) + (timeMinutes > 1? \textcolor{stringliteral}{"{} Minutes"{}}: \textcolor{stringliteral}{"{} Minute"{}})+ \textcolor{stringliteral}{"{} and\(\backslash\)n"{}} + std::to\_string(time) + \textcolor{stringliteral}{"{} Seconds"{}});}
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00039}00039         \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00040}00040             timeText.setString(\textcolor{stringliteral}{"{}Time to Win:\(\backslash\)n"{}} + std::to\_string(time) + \textcolor{stringliteral}{"{} Seconds"{}});}
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00041}00041         \}}
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00042}00042     \}}
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00044}00044 \};}
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{_game_end_8h_source_l00047}00047 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//MINESWEEPER\_GAMEEND\_H}}
+
+\end{DoxyCode}

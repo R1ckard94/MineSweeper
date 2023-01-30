@@ -1,0 +1,252 @@
+\hypertarget{class_cell}{}\doxysection{Cell Class Reference}
+\label{class_cell}\index{Cell@{Cell}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_cell_aa39ad04eeebb7bf00d592ad36640337e}{Cell}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em a bool to determine if the cell is open or not \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_cell_aa5b5db4b2da2d197c1ae2185b5646461}{is\+Open}} () const
+\begin{DoxyCompactList}\small\item\em simple CTOR to create \mbox{\hyperlink{class_cell}{Cell}} class, X and Y are the coordinates according to the vector matrix \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cell_a190d14677bd8036a2ba92d24b94bae17}{open\+Cell}} ()
+\begin{DoxyCompactList}\small\item\em checks if a cell is open \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cell_ae18f4bd7a4bebf06606788db74e6360d}{flag\+Cell}} ()
+\begin{DoxyCompactList}\small\item\em opens a cell by setting its bool value to true \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_cell_a7767d6d6077322cb2b85e552f0e9ae90}{is\+Flagged}} () const
+\begin{DoxyCompactList}\small\item\em flags and unflags a cell \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cell_ae5da07041d7d836891da7802cd4ec590}{set\+Mine}} (bool is\+\_\+a\+\_\+\+Mine)
+\begin{DoxyCompactList}\small\item\em checks if a cell is flagged \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_cell_a5f0d777884d1525d94f170cf990b2aa4}{is\+Mine}} () const
+\begin{DoxyCompactList}\small\item\em sets a cell to carry a mine \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cell_a11934fa81d4554aa63ef26166c0e339b}{count\+Adjacent\+Mines}} (std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{class_cell}{Cell}} $>$ $>$ \&cells\+Vector)
+\begin{DoxyCompactList}\small\item\em check if a cell is a mine or not \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_cell_aa62711ef56317043a5618e83a3a12dd3}{get\+Amount\+Of\+Mines\+Adjacent}} () const
+\begin{DoxyCompactList}\small\item\em Recursive. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_cell_8h_source_l00011}{11}} of file \mbox{\hyperlink{_cell_8h_source}{Cell.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_cell_aa39ad04eeebb7bf00d592ad36640337e}\label{class_cell_aa39ad04eeebb7bf00d592ad36640337e}} 
+\index{Cell@{Cell}!Cell@{Cell}}
+\index{Cell@{Cell}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{Cell()}{Cell()}}
+{\footnotesize\ttfamily Cell\+::\+Cell (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+a bool to determine if the cell is open or not 
+
+
+
+Definition at line \mbox{\hyperlink{_cell_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{_cell_8cpp_source}{Cell.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007                       :mine(\textcolor{keyword}{false}),xCoord(x),yCoord(y), amountOfMinesAdjacent(0)}
+\DoxyCodeLine{00008 \{}
+\DoxyCodeLine{00009     open = \textcolor{keyword}{false};}
+\DoxyCodeLine{00010     flagged = \textcolor{keyword}{false};}
+\DoxyCodeLine{00011 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_cell_a11934fa81d4554aa63ef26166c0e339b}\label{class_cell_a11934fa81d4554aa63ef26166c0e339b}} 
+\index{Cell@{Cell}!countAdjacentMines@{countAdjacentMines}}
+\index{countAdjacentMines@{countAdjacentMines}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{countAdjacentMines()}{countAdjacentMines()}}
+{\footnotesize\ttfamily void Cell\+::count\+Adjacent\+Mines (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{class_cell}{Cell}} $>$ $>$ \&}]{cells\+Vector }\end{DoxyParamCaption})}
+
+
+
+check if a cell is a mine or not 
+
+
+
+Definition at line \mbox{\hyperlink{_cell_8cpp_source_l00049}{49}} of file \mbox{\hyperlink{_cell_8cpp_source}{Cell.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050 \{}
+\DoxyCodeLine{00051     \textcolor{comment}{//if this is a mine we don't count}}
+\DoxyCodeLine{00052     \textcolor{keywordflow}{if}(!mine)\{}
+\DoxyCodeLine{00053         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} y = -\/1 ; y<=1; y++)\{ \textcolor{comment}{//on the y-\/axis we want to move 3 steps}}
+\DoxyCodeLine{00054             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} x = -\/1; x<=1; x++)\{\textcolor{comment}{//on the x-\/axis we want to move 3 steps aswell except when we reach ourown spot}}
+\DoxyCodeLine{00055                 \textcolor{keywordflow}{if}(y == 0 \&\& x == 0)\{ \textcolor{comment}{//}}
+\DoxyCodeLine{00056                     \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00057                 \}}
+\DoxyCodeLine{00058                 \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00059                 \{}
+\DoxyCodeLine{00060                     \textcolor{keywordflow}{if}(cellsVector.at(y+yCoord).at(x+xCoord).isMine())\{}
+\DoxyCodeLine{00061                         amountOfMinesAdjacent++;}
+\DoxyCodeLine{00062                     \}}
+\DoxyCodeLine{00063                 \}}
+\DoxyCodeLine{00064                 \textcolor{keywordflow}{catch}(\textcolor{keyword}{const} std::out\_of\_range\& e)}
+\DoxyCodeLine{00065                 \{}
+\DoxyCodeLine{00066                     \textcolor{comment}{//throws errors when edges tries to check for cells out of bounds of the vector}}
+\DoxyCodeLine{00067                 \}}
+\DoxyCodeLine{00068             \}}
+\DoxyCodeLine{00069         \}}
+\DoxyCodeLine{00070     \}}
+\DoxyCodeLine{00071 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_cell_ae18f4bd7a4bebf06606788db74e6360d}\label{class_cell_ae18f4bd7a4bebf06606788db74e6360d}} 
+\index{Cell@{Cell}!flagCell@{flagCell}}
+\index{flagCell@{flagCell}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{flagCell()}{flagCell()}}
+{\footnotesize\ttfamily void Cell\+::flag\+Cell (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+opens a cell by setting its bool value to true 
+
+
+
+Definition at line \mbox{\hyperlink{_cell_8cpp_source_l00039}{39}} of file \mbox{\hyperlink{_cell_8cpp_source}{Cell.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040 \{}
+\DoxyCodeLine{00041     flagged = !(flagged);}
+\DoxyCodeLine{00042 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_cell_aa62711ef56317043a5618e83a3a12dd3}\label{class_cell_aa62711ef56317043a5618e83a3a12dd3}} 
+\index{Cell@{Cell}!getAmountOfMinesAdjacent@{getAmountOfMinesAdjacent}}
+\index{getAmountOfMinesAdjacent@{getAmountOfMinesAdjacent}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{getAmountOfMinesAdjacent()}{getAmountOfMinesAdjacent()}}
+{\footnotesize\ttfamily int Cell\+::get\+Amount\+Of\+Mines\+Adjacent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Recursive. 
+
+
+
+Definition at line \mbox{\hyperlink{_cell_8cpp_source_l00044}{44}} of file \mbox{\hyperlink{_cell_8cpp_source}{Cell.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045 \{}
+\DoxyCodeLine{00046     \textcolor{keywordflow}{return} amountOfMinesAdjacent;}
+\DoxyCodeLine{00047 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_cell_a7767d6d6077322cb2b85e552f0e9ae90}\label{class_cell_a7767d6d6077322cb2b85e552f0e9ae90}} 
+\index{Cell@{Cell}!isFlagged@{isFlagged}}
+\index{isFlagged@{isFlagged}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{isFlagged()}{isFlagged()}}
+{\footnotesize\ttfamily bool Cell\+::is\+Flagged (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+flags and unflags a cell 
+
+
+
+Definition at line \mbox{\hyperlink{_cell_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{_cell_8cpp_source}{Cell.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025 \{}
+\DoxyCodeLine{00026     \textcolor{keywordflow}{return} flagged;}
+\DoxyCodeLine{00027 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_cell_a5f0d777884d1525d94f170cf990b2aa4}\label{class_cell_a5f0d777884d1525d94f170cf990b2aa4}} 
+\index{Cell@{Cell}!isMine@{isMine}}
+\index{isMine@{isMine}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{isMine()}{isMine()}}
+{\footnotesize\ttfamily bool Cell\+::is\+Mine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+sets a cell to carry a mine 
+
+
+
+Definition at line \mbox{\hyperlink{_cell_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{_cell_8cpp_source}{Cell.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020 \{}
+\DoxyCodeLine{00021     \textcolor{keywordflow}{return} mine;}
+\DoxyCodeLine{00022 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_cell_aa5b5db4b2da2d197c1ae2185b5646461}\label{class_cell_aa5b5db4b2da2d197c1ae2185b5646461}} 
+\index{Cell@{Cell}!isOpen@{isOpen}}
+\index{isOpen@{isOpen}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{isOpen()}{isOpen()}}
+{\footnotesize\ttfamily bool Cell\+::is\+Open (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+simple CTOR to create \mbox{\hyperlink{class_cell}{Cell}} class, X and Y are the coordinates according to the vector matrix 
+
+
+
+Definition at line \mbox{\hyperlink{_cell_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{_cell_8cpp_source}{Cell.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030 \{}
+\DoxyCodeLine{00031     \textcolor{keywordflow}{return} open;}
+\DoxyCodeLine{00032 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_cell_a190d14677bd8036a2ba92d24b94bae17}\label{class_cell_a190d14677bd8036a2ba92d24b94bae17}} 
+\index{Cell@{Cell}!openCell@{openCell}}
+\index{openCell@{openCell}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{openCell()}{openCell()}}
+{\footnotesize\ttfamily void Cell\+::open\+Cell (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+checks if a cell is open 
+
+
+
+Definition at line \mbox{\hyperlink{_cell_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{_cell_8cpp_source}{Cell.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00035 \{}
+\DoxyCodeLine{00036     open = \textcolor{keyword}{true};}
+\DoxyCodeLine{00037 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_cell_ae5da07041d7d836891da7802cd4ec590}\label{class_cell_ae5da07041d7d836891da7802cd4ec590}} 
+\index{Cell@{Cell}!setMine@{setMine}}
+\index{setMine@{setMine}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{setMine()}{setMine()}}
+{\footnotesize\ttfamily void Cell\+::set\+Mine (\begin{DoxyParamCaption}\item[{bool}]{is\+\_\+a\+\_\+\+Mine }\end{DoxyParamCaption})}
+
+
+
+checks if a cell is flagged 
+
+
+
+Definition at line \mbox{\hyperlink{_cell_8cpp_source_l00014}{14}} of file \mbox{\hyperlink{_cell_8cpp_source}{Cell.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015 \{}
+\DoxyCodeLine{00016     mine = is\_a\_Mine;}
+\DoxyCodeLine{00017 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Cell.\+h\item 
+Cell.\+cpp\end{DoxyCompactItemize}

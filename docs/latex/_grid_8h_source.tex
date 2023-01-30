@@ -1,0 +1,45 @@
+\hypertarget{_grid_8h_source}{}\doxysection{Grid.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00001}00001 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00002}00002 \textcolor{comment}{// Created by Rickard Karlsson on 2021-\/12-\/22.}}
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00003}00003 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00005}00005 \textcolor{preprocessor}{\#ifndef HELLOSFML\_GRID\_H}}
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00006}00006 \textcolor{preprocessor}{\#define HELLOSFML\_GRID\_H}}
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00007}00007 \textcolor{preprocessor}{\#include "{}Cell.h"{}}}
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00008}00008 \textcolor{preprocessor}{\#include <SFML/Graphics.hpp>}}
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00009}00009 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00010}00010 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00012}\mbox{\hyperlink{class_grid}{00012}} \textcolor{keyword}{class }\mbox{\hyperlink{class_grid}{Grid}} \{}
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00013}00013     std::vector<std::vector<Cell>> board;}
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00015}00015     \textcolor{keywordtype}{bool} gameOver = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00017}00017     \textcolor{keywordtype}{bool} gameWon = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00019}00019     \textcolor{keywordtype}{int} rowAndColumnSize;}
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00021}00021     \textcolor{keywordtype}{int} amountOfMines;}
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00023}00023     \textcolor{keywordtype}{int} difficulty;}
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00025}00025     \textcolor{keywordtype}{int} unopenedCellsLeft;}
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00027}00027     \textcolor{keywordtype}{void} swap(\mbox{\hyperlink{class_grid}{Grid}} rhs);}
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00029}00029     \textcolor{keywordtype}{void} fillVector();}
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00031}00031 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00032}00032     \mbox{\hyperlink{class_grid_a4ac9ff4f63552b4c61ff90fcb35ad66c}{Grid}}();}
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00034}00034     \mbox{\hyperlink{class_grid_a4ac9ff4f63552b4c61ff90fcb35ad66c}{Grid}}(\textcolor{keywordtype}{int} difficulty);}
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00036}00036     \mbox{\hyperlink{class_grid_a4ac9ff4f63552b4c61ff90fcb35ad66c}{Grid}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_grid}{Grid}}\& rhs);}
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00038}\mbox{\hyperlink{class_grid_a3661d0a7f998caaaf8627d7a67072116}{00038}}     \mbox{\hyperlink{class_grid_a3661d0a7f998caaaf8627d7a67072116}{\string~Grid}}();}
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00040}00040     \mbox{\hyperlink{class_grid}{Grid}}\& \mbox{\hyperlink{class_grid_ac58d4dd4f4c607412aa5ebd28e2c8317}{restart}}();}
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00042}00042     \mbox{\hyperlink{class_grid}{Grid}}\& \mbox{\hyperlink{class_grid_a9e3d91bb15a2563c8125b0dd57ba342e}{operator=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_grid}{Grid}}\& rhs);}
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00044}00044     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_grid_a0b680f3789ba54faf56047e9427b8b0d}{drawBoard}}(sf::RenderWindow\& window);}
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00046}00046     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_grid_a3ed2b224d4bca022b9b5ef76864122c4}{generateMines}}();}
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00048}00048     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_grid_a1e0f0ea50000b9c78cb284ae9fbb3750}{countAdjacentMines}}();}
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00050}00050     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_grid_a9367c82c05eab872162e309b2b3a5299}{flagCell}}(\textcolor{keywordtype}{int} coordX, \textcolor{keywordtype}{int} coordY);}
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00052}00052     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_grid_ae5256c2a0503bd2c5e76f38b3d171e23}{openCell}}(\textcolor{keywordtype}{int} coordX, \textcolor{keywordtype}{int} coordY);}
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00055}00055     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_grid_a8911028bdc39211f3571c55170bc51d3}{isGameOver}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00057}00057     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_grid_aa7aab7aaf0c667b18a001377afcee496}{isGameWon}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00059}00059     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_grid_ad3e28d4a5277ed3de2989be65f2602b7}{size}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00061}00061 \};}
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00062}00062 }
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00063}00063 }
+\DoxyCodeLine{\Hypertarget{_grid_8h_source_l00064}00064 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//HELLOSFML\_GRID\_H}}
+
+\end{DoxyCode}

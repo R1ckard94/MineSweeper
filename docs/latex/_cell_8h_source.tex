@@ -1,0 +1,37 @@
+\hypertarget{_cell_8h_source}{}\doxysection{Cell.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_cell_8h_source_l00001}00001 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_cell_8h_source_l00002}00002 \textcolor{comment}{// Created by Rickard Karlsson on 2021-\/12-\/22.}}
+\DoxyCodeLine{\Hypertarget{_cell_8h_source_l00003}00003 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_cell_8h_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{_cell_8h_source_l00005}00005 \textcolor{preprocessor}{\#ifndef HELLOSFML\_CELL\_H}}
+\DoxyCodeLine{\Hypertarget{_cell_8h_source_l00006}00006 \textcolor{preprocessor}{\#define HELLOSFML\_CELL\_H}}
+\DoxyCodeLine{\Hypertarget{_cell_8h_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{_cell_8h_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{_cell_8h_source_l00009}00009 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{\Hypertarget{_cell_8h_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{_cell_8h_source_l00011}\mbox{\hyperlink{class_cell}{00011}} \textcolor{keyword}{class }\mbox{\hyperlink{class_cell}{Cell}} \{}
+\DoxyCodeLine{\Hypertarget{_cell_8h_source_l00012}00012     \textcolor{keywordtype}{int} xCoord;}
+\DoxyCodeLine{\Hypertarget{_cell_8h_source_l00014}00014     \textcolor{keywordtype}{int} yCoord;}
+\DoxyCodeLine{\Hypertarget{_cell_8h_source_l00016}00016     \textcolor{keywordtype}{bool} mine;}
+\DoxyCodeLine{\Hypertarget{_cell_8h_source_l00018}00018     \textcolor{keywordtype}{int} amountOfMinesAdjacent;}
+\DoxyCodeLine{\Hypertarget{_cell_8h_source_l00020}00020     \textcolor{keywordtype}{bool} flagged;}
+\DoxyCodeLine{\Hypertarget{_cell_8h_source_l00022}00022     \textcolor{keywordtype}{bool} open;}
+\DoxyCodeLine{\Hypertarget{_cell_8h_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{_cell_8h_source_l00025}00025 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_cell_8h_source_l00026}00026     \mbox{\hyperlink{class_cell_aa39ad04eeebb7bf00d592ad36640337e}{Cell}}(\textcolor{keywordtype}{int} x, \textcolor{keywordtype}{int} y);}
+\DoxyCodeLine{\Hypertarget{_cell_8h_source_l00028}00028     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_cell_aa5b5db4b2da2d197c1ae2185b5646461}{isOpen}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_cell_8h_source_l00030}00030     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_cell_a190d14677bd8036a2ba92d24b94bae17}{openCell}}();}
+\DoxyCodeLine{\Hypertarget{_cell_8h_source_l00032}00032     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_cell_ae18f4bd7a4bebf06606788db74e6360d}{flagCell}}();}
+\DoxyCodeLine{\Hypertarget{_cell_8h_source_l00034}00034     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_cell_a7767d6d6077322cb2b85e552f0e9ae90}{isFlagged}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_cell_8h_source_l00036}00036     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_cell_ae5da07041d7d836891da7802cd4ec590}{setMine}}(\textcolor{keywordtype}{bool} is\_a\_Mine);}
+\DoxyCodeLine{\Hypertarget{_cell_8h_source_l00038}00038     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_cell_a5f0d777884d1525d94f170cf990b2aa4}{isMine}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_cell_8h_source_l00040}00040     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_cell_a11934fa81d4554aa63ef26166c0e339b}{countAdjacentMines}}(std::vector<std::vector<Cell>>\& cellsVector);}
+\DoxyCodeLine{\Hypertarget{_cell_8h_source_l00042}00042     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_cell_aa62711ef56317043a5618e83a3a12dd3}{getAmountOfMinesAdjacent}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_cell_8h_source_l00044}00044 \};}
+\DoxyCodeLine{\Hypertarget{_cell_8h_source_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{_cell_8h_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{_cell_8h_source_l00047}00047 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//HELLOSFML\_CELL\_H}}
+
+\end{DoxyCode}
